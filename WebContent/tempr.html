@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="ISO-8859-1">
+<title>LANGOOR LENS</title>
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+    $(function () {
+        $("#datepicker").datepicker({ dateFormat: 'yy-mm-dd',
+            numberOfMonths: 2,
+            onSelect: function (selected) {
+                var dt = new Date(selected);
+                dt.setDate(dt.getDate() + 1);
+                $("#datepicker1").datepicker("option", "minDate", dt);
+            }
+        });
+        $("#datepicker1").datepicker({ dateFormat: 'yy-mm-dd',
+            numberOfMonths: 2,
+            onSelect: function (selected) {
+                var dt = new Date(selected);
+                dt.setDate(dt.getDate() - 1);
+                $("#datepicker").datepicker("option", "maxDate", dt);
+            }
+        });
+      
+        
+      
+    });
+    </script>
+</head>
+<body bcgcolor:light blue>
+
+ <form name="acvb" action="UploadDownload" method="post" onsubmit="function()"> 
+ From Date  <input type="text" class="form-control" name="from" id="datepicker" placeholder="FROM" required=""/>
+  To Date  <input type="text" class="form-control" name="to" id="datepicker1" placeholder="TO " required=""/>
+  <select name="action">
+  <option value="download"> Downloaded</option>
+  <option value="upload"> Uploaded</option>
+  </select>
+   
+   <input type="submit" value="Search"></input>
+   
+</form> 
+
+
+</body>
+</html>
