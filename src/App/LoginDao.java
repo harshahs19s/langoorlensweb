@@ -10,7 +10,7 @@ public class LoginDao {
         Connection con=GetCon.getCon();
     	PreparedStatement ps;
     	try {
-    		ps = con.prepareStatement("SELECT * FROM user WHERE username=? and password=?");
+    		ps = con.prepareStatement("SELECT * FROM user_details WHERE username=? and password=?");
     		ps.setString(1,user);
     		ps.setString(2,pass);
     		ResultSet rs=ps.executeQuery();
@@ -26,7 +26,7 @@ public class LoginDao {
             Connection con=GetCon.getCon();
         	PreparedStatement ps;
         	try {
-        		ps = con.prepareStatement("SELECT * FROM user WHERE username=?");
+        		ps = con.prepareStatement("SELECT * FROM user_details WHERE username=?");
         		ps.setString(1,user);
         		ResultSet rs=ps.executeQuery();
         		
